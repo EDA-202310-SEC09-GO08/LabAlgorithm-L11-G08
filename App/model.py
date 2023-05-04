@@ -63,6 +63,7 @@ def newAnalyzer():
             'connections': None,
             'components': None,
             'paths': None,
+            "search" : None
         }
 
         analyzer['stops'] = m.newMap(numelements=14000,
@@ -241,11 +242,11 @@ def hasSearchPath(analyzer, destStation, method):
     """
     # TODO Lab 11, ejectutar hasPathTo por dfs
     if method == "dfs":
-        return None
+        camino = dfs.hasPathTo(analyzer['connections'], destStation)
     # TODO Lab 11, ejectutar hasPathTo por bfs
     elif method == "bfs":
-        return None
-
+        camino = bfs.hasPathTo(analyzer['connections'], destStation)
+    return camino 
 
 def searchPathTo(analyzer, destStation, method):
     """
@@ -263,10 +264,10 @@ def searchPathTo(analyzer, destStation, method):
     path = None
     # TODO Lab 11, ejectutar pathTo por dfs
     if method == "dfs":
-        pass
+        path = dfs.pathTo(analyzer['connections'],destStation)
     # TODO Lab 11, ejectutar pathTo por bfs
     elif method == "bfs":
-        pass
+        path = bfs.pathTo(analyzer['connections'], destStation)
     return path
 
 
