@@ -94,8 +94,10 @@ def optionFour(cont, initialStation):
 
 
 def optionFive(cont, initialStation, searchMethod):
-    # TODO Lab 11, conectar con la funcion del controller searchPaths
-    pass
+    print('Calculando costo de caminos')
+    controller.searchPaths(cont, initialStation, searchMethod)
+    print('Fin!')
+    
 
 
 def optionSix(cont, destStation):
@@ -166,7 +168,11 @@ def thread_cycle():
 
         elif int(inputs) == 5:
             # TODO Lab 11, completar inputs opt 5, searchMethod, initialStation
-            pass
+            searchMethod = input("Seleccione 'dfs' o 'bfs' como algoritmo: ")
+            msg = "Estación Base: BusStopCode-ServiceNo (Ej: 75009-10)"
+            initialStation = input(msg)
+            optionFive(cont, initialStation , searchMethod)
+            
 
         elif int(inputs) == 6:
             destStation = input("Estación destino (Ej: 15151-10): ")
