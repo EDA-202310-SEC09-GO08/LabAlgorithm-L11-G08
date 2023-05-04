@@ -126,14 +126,19 @@ def optionEight(cont):
 
 
 def optionNine(cont, destStation, searchMethod):
-    # TODO Lab 11, conectar con la funcion del controller hasSearchPath
-    haspath = None
-    print(haspath)
+    control = controller.hasSearchPath(cont, destStation, searchMethod)
+    if control is not None:
+        haspath = control
+        print(haspath)
+    else:
+        haspath = None
+        print('No hay camino')
 
 
 def optionTen(cont, destStation, searchMethod):
     # TODO Lab 11, conectar con la funcion del controller searchPath
-    path = None
+    control = controller.searchPathTo(cont, destStation, searchMethod)
+    path = control
     if path is not None:
         pass
     else:
@@ -187,10 +192,16 @@ def thread_cycle():
 
         elif int(inputs) == 9:
             # TODO Lab 11, completar inputs opt 9, destStation
+            searchMethod = input("Seleccione 'dfs' o 'bfs' como algoritmo: ")
+            destStation = input("Estación destino (Ej: 15151-10): ")
+            optionNine(cont, destStation, searchMethod)
             pass
 
         elif int(inputs) == 10:
             # TODO Lab 11, completar inputs opt 10, destStation
+            searchMethod = input("Seleccione 'dfs' o 'bfs' como algoritmo: ")
+            destStation = input("Estación destino (Ej: 15151-10): ")
+            optionTen(cont, destStation, searchMethod)
             pass
 
         else:
